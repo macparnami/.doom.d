@@ -32,11 +32,11 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-ayu-mirage)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -76,7 +76,7 @@
 ;; they are implemented.
 
 
-
+;; Doom theme
 ;; lsp-mode
 ;; (use-package! lsp-mode
 ;;   :defer t
@@ -102,10 +102,14 @@
                                          (conda-env-activate-for-buffer))))
   )
 
-;; avy config
-;; (use-package! avy
-;;   map! :leader
-;;   (:prefix ("")))
+;;avy config
+(map! :leader
+      (:prefix ("s a" . "Avy")
+       :desc "Avy Jump Char 2" "c" #'avy-goto-char-2
+       :desc "Avy Jump Symbol 1" "s" #'avy-goto-symbol-1
+       :desc "Avy Jump Word or Subword 1" "w" #'avy-goto-word-or-subword-1
+       )
+      )
 
 
 
