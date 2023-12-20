@@ -152,6 +152,6 @@
 ;; Golden ratio Config
 (use-package! golden-ratio
   :ensure t
-  :conifg
+  :config
   (setq! golden-ratio-mode 1)
   )
