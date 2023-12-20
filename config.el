@@ -1,6 +1,6 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
+;; Place your private configuration here! Remember, do not need to run 'doom
 ;; sync' after modifying this file!
 
 
@@ -32,8 +32,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-ayu-mirage)
-
+(setq doom-theme 'doom-spacegrey)
+(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 17 :weight 'normal))
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
@@ -85,7 +85,13 @@
 ;;   :config
 ;;   )
 ;; ;
-                                        ; lsp-pyright
+;; lsp-pyright
+;; Python related config
+;; inferior shell auto scroll mode
+(add-hook 'inferior-python-mode-hook
+          (lambda ()
+            (setq comint-move-point-for-output t)))
+
 ;; Init config to disable Multiroot projects
 (use-package! lsp-pyright
   :defer t
@@ -122,7 +128,7 @@
 (evil-define-key 'normal dired-mode-map
   (kbd "M-RET") 'dired-display-file
   (kbd "h") 'dired-up-directory
-  (kbd "l") 'dired-open-file ; use dired-find-file instead of dired-open.
+  (kbd "l") 'dired-find-file ; use dired-find-file instead of dired-open.
   (kbd "m") 'dired-mark
   (kbd "t") 'dired-toggle-marks
   (kbd "u") 'dired-unmark
@@ -137,4 +143,15 @@
   (kbd "% l") 'dired-downcase
   (kbd "% m") 'dired-mark-files-regexp
   (kbd "% u") 'dired-upcase
+  )
+
+
+;; Org mod Config
+(setq! org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿"))
+
+;; Golden ratio Config
+(use-package! golden-ratio
+  :ensure t
+  :conifg
+  (setq! golden-ratio-mode 1)
   )
