@@ -100,12 +100,33 @@
   (setq! lsp-pyright-multi-root nil)
   )
 
+(use-package! lsp-ui
+  :bind
+  (("C-h ." . lsp-ui-doc-focus-frame))
+  )
+
+(after! lsp-ui
+  (setq lsp-ui-doc-enable t
+        ;; lsp-ui-doc-position 'at-point
+        ;; lsp-lens-enable t
+        ;; lsp-ui-sideline-enable t
+        ;; lsp-ui-doc-include-signature t
+        lsp-headerline-breadcrumb-enable t
+        lsp-signature-function 'lsp-signature-posframe
+        lsp-modeline-code-actions-enable t
+        lsp-completion-show-detail t
+        lsp-completion-show-kind t
+        ;; lsp-signature-render-documentation t
+        lsp-ui-doc-max-height 15
+        lsp-ui-doc-max-width 100)
+  )
+
 ;; Conda.el config
 (use-package! conda
   :config
   (setq! conda-env-autoactivate-mode t)
-  (add-hook 'find-file-hook (lambda () (when (bound-and-true-p conda-project-env-path)
-                                         (conda-env-activate-for-buffer))))
+  (add-hook 'python-mode-hook (lambda () (when (bound-and-true-p conda-project-env-path)
+                                           (conda-env-activate-for-buffer))))
   )
 
 ;;avy config
@@ -155,3 +176,21 @@
   :config
   (setq! golden-ratio-mode 1)
   )
+
+(setq which-key-use-C-h-commands nil)
+;; ;; Evil Collection Mode
+;; (use-package evil
+;;   :ensure t
+;;   :init
+;;   (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+;;   (setq evil-want-keybinding nil)
+;;   :config
+;;   (evil-mode 1))
+
+;; (use-package evil-collection
+;;   :after evil
+;;   :ensure t
+;;   :config
+;;   (evil-collection-init)
+;;   )
+;; ;; (evil-define-key nil which-key-C-h-map "<f5>" 'which-key-show-next-page-cycle)

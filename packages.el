@@ -51,3 +51,4 @@
 (package! pyvenv)
 (package! speed-type)
 (package! golden-ratio)
+(package! evil-collection)
