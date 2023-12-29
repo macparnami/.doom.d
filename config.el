@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-spacegrey)
+(setq doom-theme 'doom-one)
 (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 17 :weight 'normal))
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -177,7 +177,19 @@
   (setq! golden-ratio-mode 1)
   )
 
-(setq which-key-use-C-h-commands nil)
+;; Which key config for enabling pagination
+(use-package! which-key
+  :ensure t
+  :config
+  (setq which-key-use-C-h-commands t)
+  )
+;; this will unbind the C-h in evil window mode
+(map! :leader
+      (:prefix ("w")
+       :desc "" "C-h" #'nil)
+      )
+
+
 ;; ;; Evil Collection Mode
 ;; (use-package evil
 ;;   :ensure t
