@@ -28,6 +28,7 @@
        (ivy
         +fuzzy
         ;; +childframe
+        +prescient
         +icons)            ; a search engine for love and life
        ;;vertico           ; the search engine of the future
 
