@@ -143,7 +143,9 @@
 ;; dired config
 (map! :leader
       (:prefix ("d" . "dired")
-       :desc "Open dired" "d" #'dired
+       :desc "Open dired" "o" #'dired
+       :desc "Create empty file" "f" #'dired-create-empty-file
+       :desc "Create directory" "d" #'dired-create-directory
        :desc "Dired jump to current" "j" #'dired-jump)
       )
 (evil-define-key 'normal dired-mode-map
