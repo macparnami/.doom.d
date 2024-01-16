@@ -172,12 +172,6 @@
 ;; Org mod Config
 (setq! org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿"))
 
-;; Golden ratio Config
-(use-package! golden-ratio
-  :ensure t
-  :config
-  (setq! golden-ratio-mode 1)
-  )
 
 ;; Which key config for enabling pagination
 (use-package! which-key
@@ -192,19 +186,3 @@
       )
 
 
-;; ;; Evil Collection Mode
-;; (use-package evil
-;;   :ensure t
-;;   :init
-;;   (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-;;   (setq evil-want-keybinding nil)
-;;   :config
-;;   (evil-mode 1))
-
-;; (use-package evil-collection
-;;   :after evil
-;;   :ensure t
-;;   :config
-;;   (evil-collection-init)
-;;   )
-;; ;; (evil-define-key nil which-key-C-h-map "<f5>" 'which-key-show-next-page-cycle)
