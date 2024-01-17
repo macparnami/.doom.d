@@ -1,10 +1,24 @@
-(setq doom-theme 'doom-one)
+#+title: Doom Emacs Config
+#+options: toc:1
 
+* Mj doom Emacs Config
+** GLOBAL DEFAULTS
+*** Theme
+#+begin_src emacs-lisp
+(setq doom-theme 'doom-one)
+#+end_src
+*** Font
+#+begin_src emacs-lisp
 (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 17
 :weight 'normal))
-
+#+end_src
+*** Line Numbering
+#+begin_src emacs-lisp
 (setq display-line-numbers-type 'relative)
-
+#+end_src
+** LSP
+*** LSP-UI
+#+begin_src emacs-lisp
 (use-package! lsp-ui
   :bind
   (("C-h ." . lsp-ui-doc-focus-frame))
@@ -25,18 +39,25 @@
         lsp-ui-doc-max-height 15
         lsp-ui-doc-max-width 100)
   )
-
+#+end_src
+** PYTHON
+*** Inferior Python Shell
+#+begin_src emacs-lisp
 (add-hook 'inferior-python-mode-hook
           (lambda ()
             (setq comint-move-point-for-output t)))
-
+#+end_src
+*** LSP-Pyright
+#+begin_src emacs-lisp
 (use-package! lsp-pyright
   :defer t
   :ensure t
   :init
   (setq! lsp-pyright-multi-root nil)
   )
-
+#+end_src
+*** Conda
+#+begin_src emacs-lisp
 (use-package! conda
   :config
   (setq! conda-env-autoactivate-mode t)
@@ -46,11 +67,19 @@
                                      conda-project-env-path)
                                   (conda-env-activate-for-buffer))))
   )
-
+#+end_src
+** ORG MODE
+*** Fancy Bullets
+#+begin_src emacs-lisp
 (setq! org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿"))
-
+#+end_src
+*** Org Directory
+#+begin_src emacs-lisp
 (setq org-directory "~/org/")
-
+#+end_src
+** AVY
+*** Keybinding
+#+begin_src emacs-lisp
 (map! :leader
       (:prefix ("s a" . "Avy")
        :desc "Avy Jump Char 2" "c" #'avy-goto-char-2
@@ -58,7 +87,10 @@
        :desc "Avy Jump Word or Subword 1" "w" #'avy-goto-word-or-subword-1
        )
       )
-
+#+end_src
+** DIRED
+*** Keybinding
+#+begin_src emacs-lisp
 (map! :leader
       (:prefix ("d" . "dired")
        :desc "Open dired" "o" #'dired
@@ -85,7 +117,10 @@
   (kbd "% m") 'dired-mark-files-regexp
   (kbd "% u") 'dired-upcase
   )
-
+#+end_src
+** WHICH KEY
+*** Keybindings
+#+begin_src emacs-lisp
 (use-package! which-key
   :ensure t
   :config
@@ -96,3 +131,4 @@
       (:prefix ("w")
        :desc "" "C-h" #'nil)
       )
+#+end_src
