@@ -62,3 +62,4 @@
 (package! magit-todos)
 (package! centered-cursor-mode)
 (package! toc-org)
+(package! org-gtd)
