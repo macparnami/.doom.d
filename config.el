@@ -101,7 +101,7 @@
           nil nil :ascent center)
         ("Health" ,(list (all-the-icons-faicon "heart" :v-adjust 0.0))
           nil nil :ascent center)
-        ("Work" ,(list (all-the-icons-material "work" :v-adjust 0.0))
+        ("Career" ,(list (all-the-icons-material "work" :v-adjust 0.0))
           nil nil :ascent center)
         ("Family" ,(list (all-the-icons-material "people" :v-adjust 0.005))
           nil nil :ascent center)
